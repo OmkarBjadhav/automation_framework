@@ -17,11 +17,14 @@ namespace EmployeeManagement
             Assert.That(actualTitle, Is.EqualTo("OrangeHRM"));
 
         }
+        //new
 
         [Test]
         public void ValidatePlaceholderTest()
         {
            
+
+
             string actualUsernamePlaceHolder=driver.FindElement(By.Name("username")).GetAttribute("placeholder");
             Assert.That(actualUsernamePlaceHolder, Is.EqualTo("Username"));
 
