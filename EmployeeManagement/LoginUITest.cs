@@ -1,31 +1,12 @@
+using EmployeeManagement.Base;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace EmployeeManagement
+namespace EmployeeManagement 
 {
-    public class LoginUITest
-    {
-        IWebDriver driver;
 
-        [SetUp]
-        // This Method will run before the [Test]Method
-        public void beforeMethod()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-
-            driver.Url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
-
-        }
-
-        //This Method will run after the [Test] Method no matter it is fail or pass
-        [TearDown]
-        public void afterMethod()
-        {
-            driver.Quit();
-        }
-
+    public class LoginUITest : AutomationWrapper
+    { 
         [Test]
         public void ValidateTitleTest()
         {
