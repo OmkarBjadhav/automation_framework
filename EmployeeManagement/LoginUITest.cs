@@ -10,6 +10,7 @@ namespace EmployeeManagement
         [Test]
         public void ValidateTitleTest()
         {
+            //Selenium Framework
             IWebDriver driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(20);
