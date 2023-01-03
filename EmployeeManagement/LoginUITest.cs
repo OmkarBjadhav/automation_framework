@@ -17,6 +17,7 @@ namespace EmployeeManagement
             Assert.That(actualTitle, Is.EqualTo("OrangeHRM"));
 
         }
+
         [Test]
         public void ValidatePlaceholderTest()
         {
