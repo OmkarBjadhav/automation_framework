@@ -19,7 +19,7 @@ namespace EmployeeManagement
 
         }
 
-        //This Method will run after the [Test] Method no matter it is fail or pass
+        //This Method will run after the [Test] Method no matter it is fail or pass.
         [TearDown]
         public void afterMethod()
         {
