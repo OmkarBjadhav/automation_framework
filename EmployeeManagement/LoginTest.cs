@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement
 {
-    public class LoginTest :AutomationWrapper
+    public class LoginTest : AutomationWrapper
     {
         [Test]
         public void ValidLoginTest()
@@ -17,9 +17,24 @@ namespace EmployeeManagement
             driver.FindElement(By.Name("password")).SendKeys("admin123");
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
 
-           string pageUrl=driver.Url;
-            Assert.That(pageUrl, Is.EqualTo("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index"));
+            string pageUrl = driver.Url;
 
+            // Landing page Url Confirmation 
+            Assert.That(pageUrl, Is.EqualTo("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index"));
+        }
+        [Test]
+        [TestCase("John", "john123", "Invalid credential")]
+        [TestCase("peter", "peter123", "Invalid credential")]
+        public void InvalidLoginTest(string username, string password, string expectedMsg)
+        {
+            driver.FindElement(By.Name("username")).SendKeys(username);
+            driver.FindElement(By.Name("password")).SendKeys(password);
+            driver.FindElement(By.XPath("//button[@type='submit']")).Click();
+            string errorMsg = driver.FindElement(By.XPath("//p[text()='Invalid credentials']")).Text;
+            Assert.That(errorMsg.Contains(expectedMsg));
+
+            // Print The Error MSG
+            Console.WriteLine(errorMsg);
 
         }
     }
