@@ -35,33 +35,33 @@ namespace EmployeeManagement.Utilities
             return allDataSet;
         }
 
-        public static object[] validEmployeeData()
+        public static object[] ValidEmployeeData()
         {
-            string[] dataset1 = new string[7];
+            string[] dataset1 = new string[6];
             dataset1[0] = "Admin";
             dataset1[1] = "admin123";
             dataset1[2] = "john";
             dataset1[3] = "w";
-            dataset1[4] = "weak";
-            dataset1[5] = "//h6[text()='john weak']";
-            dataset1[6] = "john weak";
+            dataset1[4] = "wick";
+            dataset1[5] = "john wick";
 
 
 
-            string[] dataset2 = new string[7];
+
+            string[] dataset2 = new string[6];
             dataset2[0] = "Admin";
             dataset2[1] = "admin123";
             dataset2[2] = "saul";
             dataset2[3] = "g";
             dataset2[4] = "goodman";
-            dataset2[5] = "//h6[text()='saul goodman']";
-            dataset2[6] = "saul goodman";
+            dataset2[5] = "saul goodman";
+
 
 
             object[] allDataSet = new object[2];
             allDataSet[0] = dataset1;
             allDataSet[1] = dataset2;
-          
+
             return allDataSet;
 
         }

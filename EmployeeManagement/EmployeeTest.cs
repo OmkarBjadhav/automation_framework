@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement
 {
-    public class EmployeeTest:AutomationWrapper
+    public class EmployeeTest : AutomationWrapper
     {
-        [Test,TestCaseSource(typeof(DataSource),nameof(DataSource.validEmployeeData))]
-        public void AddValidEmployeeTest(string username,string password,string firstName,string middleName,string lastName,string pathVariable,string expectedResult)
+        [Test, TestCaseSource(typeof(DataSource), nameof(DataSource.ValidEmployeeData))]
+        public void AddValidEmployeeTest(string username, string password, string firstName, string middleName, string lastName, string expectedResult)
         {
 
             // Given the username and password credentials 
@@ -30,8 +30,11 @@ namespace EmployeeManagement
             driver.FindElement(By.Name("lastName")).SendKeys(lastName);
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
 
-            //The Verification for the Employee Name given the Xpath from validLoginData method
-            string nameValidation=driver.FindElement(By.XPath(pathVariable)).Text;
+            string dynamicPath = "//h6[contains(normalize-space(),'@@@@')]";
+            dynamicPath = dynamicPath.Replace("@@@@", firstName);
+
+
+            string nameValidation = driver.FindElement(By.XPath(dynamicPath)).Text;
             Assert.That(nameValidation.Contains(expectedResult));
 
             // Print the Employee name(Not required)
