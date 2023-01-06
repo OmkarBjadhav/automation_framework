@@ -76,8 +76,8 @@ namespace EmployeeManagement.Utilities
 
         public static object[]  ValidEmployeeData1()
         {
-            object[] data = ExcelUtils.GetSheetIntoObjectArray(@"C:\\Users\\omkarj\\Desktop\\C# Project\\AutomationFramework
-                                                            \\EmployeeManagement\\TestData\\orange_data.xlsx", "AddValidEmployeeTest");
+            object[] data = ExcelUtils.GetSheetIntoObjectArray(@"C:\\Users\\omkarj\\Desktop\\C# Project\\AutomationFramework\\EmployeeManagement\\TestData\\orange_data.xlsx","AddValidEmployeeTest");
+                                                           
             return data;
 
         }
