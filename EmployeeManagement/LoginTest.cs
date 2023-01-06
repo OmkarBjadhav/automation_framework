@@ -24,7 +24,7 @@ namespace EmployeeManagement
             Assert.That(pageUrl, Is.EqualTo("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index"));
         }
 
-        [Test, TestCaseSource(typeof(DataSource), nameof(DataSource.InvalidLoginData))]
+        [Test, TestCaseSource(typeof(DataSource), nameof(DataSource.InvalidLogindata2))]
 
         public void InvalidLoginTest(string username, string password, string expectedMsg)
         {
