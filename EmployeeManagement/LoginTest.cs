@@ -1,4 +1,5 @@
 ﻿using EmployeeManagement.Base;
+using EmployeeManagement.Pages;
 using EmployeeManagement.Utilities;
 using OpenQA.Selenium;
 using System;
@@ -14,8 +15,10 @@ namespace EmployeeManagement
         [Test]
         public void ValidLoginTest()
         {
-            driver.FindElement(By.Name("username")).SendKeys("Admin");
-            driver.FindElement(By.Name("password")).SendKeys("admin123");
+            LoginPage loginpage = new LoginPage(driver);
+
+            loginpage.EnterUsername("Admin");
+            loginpage.EnterPassword("admin123");
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
 
             string pageUrl = driver.Url;
@@ -28,8 +31,10 @@ namespace EmployeeManagement
 
         public void InvalidLoginTest(string username, string password, string expectedMsg)
         {
-            driver.FindElement(By.Name("username")).SendKeys(username);
-            driver.FindElement(By.Name("password")).SendKeys(password);
+            LoginPage loginpage = new LoginPage(driver);
+
+            loginpage.EnterUsername(username);
+            loginpage.EnterPassword(password);
             driver.FindElement(By.XPath("//button[@type='submit']")).Click();
             string errorMsg = driver.FindElement(By.XPath("//p[text()='Invalid credentials']")).Text;
             Assert.That(errorMsg.Contains(expectedMsg));
